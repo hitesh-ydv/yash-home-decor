@@ -18,9 +18,12 @@ const CTASection = () => {
       icon: "MessageCircle",
       title: "WhatsApp",
       value: "Chat Now",
-      action: () => window.open('https://wa.me/918813888699', '_blank'),
+      action: () => {
+        window.location.href = 'https://wa.me/918813888699';
+      },
       color: "var(--color-success)"
     }
+
   ];
 
   return (

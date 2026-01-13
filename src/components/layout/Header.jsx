@@ -62,7 +62,7 @@ const Header = () => {
               iconName="MessageCircle"
               iconPosition="left"
               className="hidden lg:flex"
-              onClick={() => window.open('https://wa.me/918813888699', '_blank')}
+              onClick={() => window.open('https://wa.me/918813888699')}
             >
               WhatsApp
             </Button>

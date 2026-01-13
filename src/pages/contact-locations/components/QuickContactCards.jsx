@@ -29,13 +29,20 @@ const QuickContactCards = () => {
   ];
 
   const handleContactClick = (href) => {
-    if (href?.startsWith('#')) {
+    if (!href) return;
+
+    // For external apps like WhatsApp / Phone
+    if (href.startsWith('http') || href.startsWith('tel:')) {
+      window.location.href = href; // ✅ FIX
+      return;
+    }
+
+    // For in-page scroll
+    if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    } else {
-      window.open(href, href?.startsWith('http') ? '_blank' : '_self');
     }
   };
 
@@ -65,7 +72,7 @@ const QuickContactCards = () => {
                 <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 font-headline">
                   {method?.title}
                 </h3>
-                
+
                 <p className="text-xs md:text-sm text-muted-foreground mb-4 flex-grow">
                   {method?.description}
                 </p>
