@@ -74,16 +74,24 @@ const ServiceCards = () => {
     }
   ];
 
-  const handleContactClick = (href) => {
-    if (href?.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    } else {
-      window.open(href, href?.startsWith('http') ? '_blank' : '_self');
+const handleContactClick = (href) => {
+  if (!href) return;
+
+  // For external apps like WhatsApp / Phone
+  if (href.startsWith('http') || href.startsWith('tel:')) {
+    window.location.href = href; // ✅ FIX
+    return;
+  }
+
+  // For in-page scroll
+  if (href.startsWith('#')) {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }
+};
+
 
 
 
