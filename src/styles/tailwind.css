@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #8B4513; /* brown-700 - Warm teak brown */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #F5F5DC; /* beige */
+    --color-secondary-foreground: #2C1810; /* dark-brown */
+    
+    /* Accent Colors */
+    --color-accent: #FF6B35; /* orange-600 - Warm orange */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background Colors */
+    --color-background: #FEFEFE; /* gray-50 - Pure white */
+    --color-foreground: #2C1810; /* gray-900 - Rich dark brown */
+    
+    /* Surface Colors */
+    --color-card: #F8F6F3; /* warm-gray-50 - Warm off-white */
+    --color-card-foreground: #2C1810; /* gray-900 */
+    
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #2C1810; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F5F5DC; /* beige */
+    --color-muted-foreground: #6B5B4F; /* gray-600 - Medium brown */
+    
+    /* Border & Input */
+    --color-border: #E8E2DB; /* gray-300 */
+    --color-input: #E8E2DB; /* gray-300 */
+    --color-ring: #8B4513; /* brown-700 */
+    
+    /* Status Colors */
+    --color-success: #4A7C59; /* green-700 - Forest green */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #E67E22; /* orange-500 - Warm amber */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #C0392B; /* red-700 - Warm red */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #C0392B; /* red-700 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Additional Brand Colors */
+    --color-golden-amber: #E8B86D; /* amber-400 */
+    --color-burnt-orange: #D2691E; /* orange-700 */
+    --color-deep-forest: #2C5F41; /* green-800 */
+    --color-warm-cream: #F5E6D3; /* orange-100 */
+    
+    /* Typography */
+    --font-headline: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-cta: 'Outfit', sans-serif;
+    --font-accent: 'Crimson Text', serif;
+    
+    /* Spacing */
+    --radius: 0.25rem;
+  }
+
+  .dark {
+    --color-background: #1A1A1A; /* gray-900 */
+    --color-foreground: #F5F5DC; /* beige */
+    
+    --color-card: #2C1810; /* dark-brown */
+    --color-card-foreground: #F5F5DC; /* beige */
+    
+    --color-popover: #2C1810; /* dark-brown */
+    --color-popover-foreground: #F5F5DC; /* beige */
+    
+    --color-muted: #3A2F26; /* brown-800 */
+    --color-muted-foreground: #D4C4B0; /* warm-gray-400 */
+    
+    --color-border: #4A3F35; /* brown-700 */
+    --color-input: #4A3F35; /* brown-700 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+  }
+}
+
+@layer components {
+  .header {
+    @apply fixed top-0 left-0 right-0 z-40 bg-card shadow-md;
+  }
+  
+  .header-container {
+    @apply flex items-center justify-between h-16 px-6 max-w-7xl mx-auto;
+  }
+  
+  .header-logo {
+    @apply flex items-center gap-3;
+  }
+  
+  .header-logo-icon {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-burnt-orange) 100%);
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.2);
+  }
+  
+  .header-logo-text {
+    @apply text-xl font-semibold text-foreground;
+    font-family: var(--font-headline);
+  }
+  
+  .header-nav {
+    @apply hidden lg:flex items-center gap-8;
+  }
+  
+  .header-nav-link {
+    @apply text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative;
+    font-family: var(--font-body);
+  }
+  
+  .header-nav-link.active {
+    @apply text-foreground;
+  }
+  
+  .header-nav-link.active::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 right-0 h-0.5 bg-primary;
+  }
+  
+  .header-actions {
+    @apply flex items-center gap-4;
+  }
+  
+  .mobile-menu-button {
+    @apply lg:hidden fixed top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-lg bg-card shadow-lg;
+  }
+  
+  .mobile-menu-overlay {
+    @apply fixed inset-0 z-40 bg-background lg:hidden;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .mobile-menu-overlay.open {
+    transform: translateX(0);
+  }
+  
+  .mobile-menu-content {
+    @apply flex flex-col h-full pt-20 px-6;
+  }
+  
+  .mobile-menu-nav {
+    @apply flex flex-col gap-6;
+  }
+  
+  .mobile-menu-link {
+    @apply text-lg font-medium text-foreground py-3 border-b border-border;
+    font-family: var(--font-body);
+  }
+  
+  .mobile-menu-link.active {
+    @apply text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(232, 184, 109, 0.3);
+    transition: box-shadow 0.3s ease-out;
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 0 0 40px rgba(232, 184, 109, 0.5);
+  }
+  
+  .warm-shadow {
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.1);
+  }
+  
+  .warm-shadow-lg {
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.15);
+  }
+  
+  .wood-texture {
+    position: relative;
+  }
+  
+  .wood-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B4513' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+  }
+  
+  .heritage-pattern {
+    position: relative;
+  }
+  
+  .heritage-pattern::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B4513' fill-opacity='0.03'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .heritage-pattern:hover::before {
+    opacity: 0.08;
+  }
+}
