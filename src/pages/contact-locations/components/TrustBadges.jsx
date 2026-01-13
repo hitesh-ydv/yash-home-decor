@@ -141,7 +141,7 @@ const TrustBadges = () => {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
               <a
-                href="tel:+919876543210"
+                href="tel:+918813888699"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors"
               >
                 <Icon name="Phone" size={18} color="#FFFFFF" />
