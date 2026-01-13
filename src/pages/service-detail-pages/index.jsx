@@ -443,7 +443,7 @@ const ServiceDetailPages = () => {
         }
 
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/918813888699"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 left-6 w-12 h-12 md:w-14 md:h-14 rounded-full bg-success text-white shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 z-40 glow-effect"

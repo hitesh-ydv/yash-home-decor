@@ -23,7 +23,7 @@ const ContactModal = ({ isOpen, onClose, serviceName }) => {
   const handleSubmit = (e) => {
     e?.preventDefault();
     const message = `Hi, I'm interested in ${formData?.service}. Name: ${formData?.name}, Phone: ${formData?.phone}, Email: ${formData?.email}. ${formData?.message}`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/918813888699?text=${encodeURIComponent(message)}`, '_blank');
     onClose();
   };
 
@@ -111,7 +111,7 @@ const ContactModal = ({ isOpen, onClose, serviceName }) => {
               fullWidth
               iconName="Phone"
               iconPosition="left"
-              onClick={() => window.open('tel:+919876543210', '_self')}
+              onClick={() => window.open('tel:+918813888699', '_self')}
             >
               Call Now
             </Button>

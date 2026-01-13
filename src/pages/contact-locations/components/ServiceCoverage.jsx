@@ -111,14 +111,14 @@ const ServiceCoverage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
             <a
-              href="tel:+919876543210"
+              href="tel:+918813888699"
               className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-primary text-white rounded-lg font-medium text-sm md:text-base hover:bg-primary/90 transition-colors shadow-warm"
             >
               <Icon name="Phone" size={20} color="#FFFFFF" />
               Call to Inquire
             </a>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/918813888699"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white text-foreground rounded-lg font-medium text-sm md:text-base hover:bg-muted transition-colors border border-border"

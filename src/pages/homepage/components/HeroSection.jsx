@@ -123,7 +123,7 @@ const HeroSection = () => {
               iconName="Phone"
               iconPosition="left"
               className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
-              onClick={() => window.open('tel:+918813888698', '_self')}
+              onClick={() => window.open('tel:+918813888699', '_self')}
             >
               Call Now
             </Button>

@@ -196,7 +196,7 @@ const ConsultationForm = () => {
             <Input
               label="Phone Number"
               type="tel"
-              placeholder="98765 43210"
+              placeholder="Enter your 10-digit mobile number"
               value={formData?.phone}
               onChange={(e) => handleInputChange('phone', e?.target?.value)}
               error={errors?.phone}
