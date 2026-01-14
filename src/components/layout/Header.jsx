@@ -69,7 +69,7 @@ const Header = () => {
           </div>
 
           <button
-            className="mobile-menu-button"
+            className="mobile-menu-button z-10"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >

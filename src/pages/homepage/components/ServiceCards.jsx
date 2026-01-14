@@ -8,16 +8,16 @@ const ServiceCards = () => {
   const navigate = useNavigate();
 
   const services = [
-    {
-      id: 1,
-      title: "PVC Panels",
-      description: "Durable, waterproof wall and ceiling solutions with modern aesthetics",
-      image: "https://cms.interiorcompany.com/wp-content/uploads/2024/06/master-bedroom-pvc-wall-panels-for-bedroom.jpg",
-      imageAlt: "Modern interior wall decorated with white PVC panels featuring geometric patterns, clean lines, and contemporary design in well-lit residential space",
-      icon: "Layers",
-      features: ["Waterproof", "Easy Maintenance", "Cost Effective"],
-      color: "var(--color-primary)"
-    },
+    // {
+    //   id: 1,
+    //   title: "PVC Panels",
+    //   description: "Durable, waterproof wall and ceiling solutions with modern aesthetics",
+    //   image: "https://cms.interiorcompany.com/wp-content/uploads/2024/06/master-bedroom-pvc-wall-panels-for-bedroom.jpg",
+    //   imageAlt: "Modern interior wall decorated with white PVC panels featuring geometric patterns, clean lines, and contemporary design in well-lit residential space",
+    //   icon: "Layers",
+    //   features: ["Waterproof", "Easy Maintenance", "Cost Effective"],
+    //   color: "var(--color-primary)"
+    // },
     {
       id: 2,
       title: "Modular Kitchens",
@@ -26,7 +26,8 @@ const ServiceCards = () => {
       imageAlt: "Contemporary modular kitchen with white cabinets, wooden countertops, stainless steel appliances, organized storage, and modern lighting fixtures",
       icon: "ChefHat",
       features: ["Custom Design", "Premium Materials", "Smart Storage"],
-      color: "var(--color-accent)"
+      color: "var(--color-accent)",
+      category: "kitchen"
     },
     {
       id: 3,
@@ -36,7 +37,8 @@ const ServiceCards = () => {
       imageAlt: "Bedroom interior with ambient LED strip lighting along ceiling edges, warm glow illuminating modern furniture and creating cozy atmosphere",
       icon: "Lightbulb",
       features: ["Energy Saving", "Mood Lighting", "Long Lasting"],
-      color: "var(--color-golden-amber)"
+      color: "var(--color-golden-amber)",
+      category: "led"
     },
     {
       id: 4,
@@ -46,7 +48,8 @@ const ServiceCards = () => {
       imageAlt: "Spacious walk-in wardrobe with organized wooden shelving, hanging space for clothes, drawers, and modern interior lighting system",
       icon: "Shirt",
       features: ["Space Optimization", "Custom Fittings", "Quality Hardware"],
-      color: "var(--color-deep-forest)"
+      color: "var(--color-deep-forest)",
+      category: "wardrobe"
     }];
 
   const contactMethods = [
@@ -95,7 +98,8 @@ const handleContactClick = (href) => {
 
 
 
-  const handleServiceClick = (serviceId) => {
+  const handleServiceClick = (category) => {
+    navigate('/service-detail-pages', { state: { category } });
 
   };
 
@@ -154,7 +158,7 @@ const handleContactClick = (href) => {
             <div
               key={service?.id}
               className="group cursor-pointer"
-              onClick={() => handleServiceClick(service?.id)}>
+              onClick={() => handleServiceClick(service?.category)}>
 
               <div className="bg-card rounded-xl overflow-hidden warm-shadow hover:warm-shadow-lg transition-all duration-300 transform hover:-translate-y-2">
                 <div className="relative h-48 md:h-56 overflow-hidden">
@@ -191,10 +195,10 @@ const handleContactClick = (href) => {
                     )}
                   </div>
 
-                  {/* <div className="flex items-center gap-2 text-sm font-medium" style={{ color: service?.color }}>
-                    <span>Learn More</span>
-                    <Icon name="ArrowRight" size={16} color={service?.color} />
-                  </div> */}
+                  <div className="flex items-center gap-2 text-sm font-medium bg-slate-600 px-2 py-3 justify-center rounded-lg" style={{ color: "white", backgroundColor: service?.color }}>
+                    <span>Explore Designs</span>
+                    <Icon name="ArrowRight" size={16} color="white" />
+                  </div>
                 </div>
               </div>
             </div>
