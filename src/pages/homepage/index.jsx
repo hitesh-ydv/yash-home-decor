@@ -20,7 +20,7 @@ const Homepage = () => {
       
       <main className="flex-1 pt-16">
         <HeroSection />
-        <StatsCounter />
+        {/* <StatsCounter /> */}
         <ServiceCards />
         <WhyChooseUs />
         <TestimonialCarousel />
